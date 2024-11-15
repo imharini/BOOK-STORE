@@ -1,12 +1,12 @@
 import React from 'react';
 
-const AdminDashboard = () => {
+function AdminDashboard() {
   return (
     <div>
-      <h2>Admin Dashboard</h2>
-      <p>Welcome to the Admin Dashboard!</p>
+      <h1>Admin Dashboard</h1>
+      {/* Admin management features like user list, book addition, etc. */}
     </div>
   );
-};
+}
 
 export default AdminDashboard;

@@ -1,30 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import BookCard from '../components/BookCard';
 
-const HomePage = () => {
-  const [books, setBooks] = useState([]);
-
-  useEffect(() => {
-    axios.get('http://localhost:5000/api/books')  // Example API call
-      .then(response => {
-        setBooks(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching books:', error);
-      });
-  }, []);
-
+function HomePage() {
   return (
     <div>
-      <h1>Welcome to the Bookstore</h1>
-      <div className="books-list">
-        {books.map(book => (
-          <BookCard key={book._id} book={book} />
-        ))}
+      <h1>Book Store</h1>
+      <div className="book-list">
+        {/* Fetch and map books here */}
+        <BookCard title="Sample Book" author="Author Name" price={19.99} />
       </div>
     </div>
   );
-};
+}
 
 export default HomePage;
+
+

@@ -1,17 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const BookCard = ({ book }) => {
+function BookCard({ title, author, price }) {
   return (
     <div className="book-card">
-      <Link to={`/book/${book._id}`}>
-        <img src={book.itemImage} alt={book.title} />
-        <h3>{book.title}</h3>
-        <p>{book.author}</p>
-        <p>{book.genre}</p>
-      </Link>
+      <h3>{title}</h3>
+      <p>{author}</p>
+      <p>${price.toFixed(2)}</p>
     </div>
   );
-};
+}
 
 export default BookCard;
+

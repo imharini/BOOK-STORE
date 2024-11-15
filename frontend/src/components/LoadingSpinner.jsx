@@ -1,7 +1,9 @@
 import React from 'react';
+import './LoadingSpinner.css'; // Add styling for spinner
 
-const LoadingSpinner = () => {
-  return <div className="spinner">Loading...</div>;
-};
+function LoadingSpinner() {
+  return <div className="spinner"></div>;
+}
 
 export default LoadingSpinner;
+

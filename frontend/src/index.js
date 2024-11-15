@@ -1,12 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';  // Import global styles
-import App from './App';  // Import the main App component
-import { BrowserRouter as Router } from 'react-router-dom';  // For routing
+import ReactDOM from 'react-dom';
+import App from './App';
+import { Provider } from 'react-redux';
+import store from './store';
+import './styles/index.css'; // Main CSS file
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <Router>
+ReactDOM.render(
+  <Provider store={store}>
     <App />
-  </Router>
+  </Provider>,
+  document.getElementById('root')
 );

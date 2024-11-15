@@ -1,32 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import api from '../utils/api';
 
-const BookDetails = () => {
+function BookDetails() {
   const { id } = useParams();
   const [book, setBook] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/books/${id}`)
-      .then(response => {
+    const fetchBook = async () => {
+      try {
+        const response = await api.get(`/books/${id}`);
         setBook(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching book details:', error);
-      });
+      } catch (error) {
+        console.error('Failed to fetch book details', error);
+      }
+    };
+
+    fetchBook();
   }, [id]);
 
-  if (!book) return <div>Loading...</div>;
+  if (!book) return <p>Loading...</p>;
 
   return (
     <div>
       <h1>{book.title}</h1>
-      <p>{book.author}</p>
-      <p>{book.genre}</p>
-      <p>{book.description}</p>
-      <img src={book.itemImage} alt={book.title} />
+      <p>Author: {book.author}</p>
+      <p>Price: ${book.price}</p>
+      <button>Add to Cart</button>
     </div>
   );
-};
+}
 
 export default BookDetails;
+

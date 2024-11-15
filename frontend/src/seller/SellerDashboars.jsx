@@ -1,12 +1,13 @@
 import React from 'react';
 
-const SellerDashboard = () => {
+function SellerDashboard() {
   return (
     <div>
-      <h2>Seller Dashboard</h2>
-      <p>Welcome to your seller dashboard!</p>
+      <h1>Seller Dashboard</h1>
+      {/* Seller options for managing books and orders */}
     </div>
   );
-};
+}
 
 export default SellerDashboard;
+
